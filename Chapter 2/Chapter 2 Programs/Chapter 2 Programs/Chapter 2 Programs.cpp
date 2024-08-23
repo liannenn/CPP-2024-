@@ -4,7 +4,10 @@ using namespace std;
 
 int main()
 {
-	//2-2 "Sales Prediction"
+
+	cout << "\n ------------------------------------------------------------------------------------\n\n";
+
+//2-2 "Sales Prediction"
 
 	//write a program that predict how much the midwest division generates
 
@@ -25,8 +28,10 @@ int main()
 
 	cout << "\n ------------------------------------------------------------------------------------\n\n";
 
-	//2-3 "Sales Tax"
+//2-3 "Sales Tax"
 
+	//make a program which calculates the total and taxes for multiple purchases
+	// 
 	//create variables 
 	double statetax1 = 0, statetax2 = 0, statetax3 = 0; // state tax amount holders
 	double countytax1 = 0, countytax2 = 0, countytax3 = 0; // county tax amt holders
@@ -86,7 +91,8 @@ int main()
 	cout << "\n ------------------------------------------------------------------------------------\n\n";
 
 
-//2-4
+//2-4 "Restaurant Bill"
+
 	//Compute the tax and tip on a restaurant bill for 88.67 
 	//state tax 6.5% 
 	//tip = 20% of the total 
@@ -118,7 +124,8 @@ int main()
 
 	cout << "\n ------------------------------------------------------------------------------------\n\n";
 
-//2-6 
+//2-6 "Annual Pay"
+	
 	//calculate an employees total annual pay by multiplying the employees pay amount
 
 	//create variables
@@ -133,7 +140,8 @@ int main()
 
 	cout << "\n ------------------------------------------------------------------------------------\n\n";
 
-//2-9
+//2-9 "Cybody Data Type Sizes"
+	
 	//determine the amount of memory used by different data types using sizof(__), then print it 
 	cout << "A char data type uses " << sizeof(char) << " byte(s) of memory.\n";
 	cout << "The int data type uses " << sizeof(int) << " byte(s) of memory.\n";
@@ -142,8 +150,9 @@ int main()
 
 	cout << "\n ------------------------------------------------------------------------------------\n\n";
 
-//2-16
-	//Make a diamong pattern
+//2-16 "Diamond Pattern"
+
+	//Make a diamond pattern
 	cout << "   *" << endl;
 	cout << "  ***" << endl;
 	cout << " *****" << endl;
