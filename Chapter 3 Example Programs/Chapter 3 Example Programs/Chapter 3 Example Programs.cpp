@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main()
@@ -19,7 +20,7 @@ int main()
 	cin >> length;
 
 	//print asking for the width
-	cout << "Input a value for length: ";
+	cout << "Input a value for width: ";
 	//store width
 	cin >> width;
 
@@ -180,10 +181,124 @@ int main()
 
 		//print asking for months
 		cout << "\nHow many months will it take you to read them? ";
+		cin >> months;
 
 		//calculate the amount of books read per month
 		perMonth = static_cast<double>(books) / months;
 
 		//print amount read per month
-		cout << "You will need to read " << perMonth << " books per month.";
+		cout << "You will need to read " << perMonth << " book(s) per month.";
+
+		cout << "\n\n---------------------------------------------------------------------------------------------------\n\n";
+
+//Example Program 3-10
+		//Accepts no arguments
+		//Takes input from theuser in the form of an integer
+		//uses Type Casting to convert the integer to a char data type and output the result.
+		
+		//define variables
+		int integer_value; 
+		char conversion;
+
+		//ask for integer value
+		cout << "Enter an integer value to see the char conversion: ";
+		cin >> integer_value;
+		
+		//convert to a char
+		conversion = static_cast<char>(integer_value);
+
+		//print the conversion
+		cout << "The integer " << integer_value << " converted to a char is: " << conversion;
+
+		cout << "\n\n---------------------------------------------------------------------------------------------------\n\n";
+
+//Example Program 3-11
+		//Accepts no arguments
+		//Outputs an intro message and takes input from the user in the form of an integer for the beginning inventory for three stores
+		//Prompts the user for the number o fitems sold in each store
+		//Subtracts that amount from each store's individual inventory and outputs the results
+
+		//define variables
+
+		//THIS PROGRAM IS BROKEN COME BACK TO IT LATER
+
+		/*8
+		double begInv, // beginning inventory for all stores
+		store1, store2, store3; // inventory for store 1 2 and 3
+
+		cout << "Welcome to the Widget inventory control system.\nThree stores opened last week with the same beginning inventory.";
+		cout << "\nPlease input the beginning inventory: " << endl;
+		cin >> begInv;
+
+		//store 1 
+		cout << "How many did store 1 sell? ";
+		cin >> store1;
+
+		//calculate for rest
+		store1 = begInv - store1;
+
+		//store 2
+		cout << "How many did store 2 sell? ";
+		cin >> store2;
+
+		//calculate for rest
+		store2 = begInv - store2;
+
+		//store3
+		cout << "How many did store 3 sell? ";
+		cin >> store3;
+
+		//calculate for rest
+		store3 = begInv - store3;
+
+		cout << "Each store's current inventory is: \n Store1: " << store1 << "\nStore 2: " << store2 << "\nStore 3: " << store3;
+		*/
+		
+//Program 3-12
+	//Accepts no arguments
+	//Outputs a serious of numbers with no formatting specifier
+
+	//Initialize variables
+		int num1 = 2897, num2 = 5, num3 = 837, num4 = 34, num5 = 7, num6 = 1623, num7 = 390, num8 = 3456, num9 = 12;
+
+	//display 3 rows of 3 integers
+		cout << setw(14) << num1 << setw(16) << num2 << setw(18) << num3 << endl;
+
+		cout << setw(14) << num4 << setw(16) << num5 << setw(18) << num6 << endl;
+
+		cout << setw(14) << num7 << setw(16) << num8 << setw(18) << num9 << endl;
+
+		cout << "\n\n---------------------------------------------------------------------------------------------------\n\n";
+
+//Example Program 3-14
+		//Accepts no arguments
+		//Outputs three variables containing the values 
+		//intValue = 3928, doubleValue = 91.5, stringValue = "Price Humperdink";
+
+		//intialize values
+		int intValuee = 3928;
+		double doubleValue = 91.5;
+		string stringValue = "Prince Humperdink";
+
+		cout << setw(17) << "(" << intValuee << ")" << endl;
+		cout << setw(17) << "(" << doubleValue << ")" << endl;
+		cout << setw(17) << "(" << stringValue << ")" << endl;
+
+		cout << "\n\n---------------------------------------------------------------------------------------------------\n\n";
+
+//Example Program 3-15
+		//Accepts no arguments
+		//Outputs the same value using different levels of precisions
+
+		//initialize variables
+		double quotient, number1 = 132.364, number2 = 26.91;
+
+		// peform claculates and output decreasing prec each time
+		quotient = number1 / number2;
+		cout << quotient << endl;
+		cout << setprecision(5) << quotient << endl; 
+		cout << setprecision(4) << quotient << endl;
+		cout << setprecision(3) << quotient << endl;
+		cout << setprecision(2) << quotient << endl;
+		cout << setprecision(1) << quotient << endl;
 }
