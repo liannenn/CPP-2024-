@@ -3,12 +3,13 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+
 using namespace std;
 
 int main()
 {
 
-/*Example Program 3-1 
+ /*Example Program 3-1 
   Receives no arguments
   Takes input from the user in the form of length and width
   Calculates and outputs the area of a rectangle*/
@@ -149,7 +150,7 @@ int main()
 
 //Example Program 3-8
 		//accepts no arguments
-		//demonstrates overflow and unferflow with max float being 2.0e38
+		//demonstrates overflow and underflow with max float being 2.0e38
 
 		//define variables
 		float test;
@@ -301,4 +302,57 @@ int main()
 		cout << setprecision(3) << quotient << endl;
 		cout << setprecision(2) << quotient << endl;
 		cout << setprecision(1) << quotient << endl;
+
+		cout << "\n\n---------------------------------------------------------------------------------------------------\n\n"; 
+
+//Program 3-16
+		//accepts no arguments
+		//prompts the user for sales for days 1, 2, and 3
+		//and outputs the values with a total of all slaes for the three days
+		 /*
+		double day_1, day_2, day_3;
+		double total_days; 
+
+		//ask for sales for day 1
+		cout << "Please enter the sales for day 1: ";
+		//store the sales amount
+		cin >> day_1;
+
+		//ask for sales for day 2
+		cout << "\nPlease enter the sales for day 2: " << endl;
+		//store the sales amount
+		cin >> day_2;
+
+		//ask for sales for day 3
+		cout << "Please enter the sales for day 3: ";
+		//store the sales amount
+		cin >> day_3;
+		
+		cout << "\n\nSales Amounts\n--------------------\nDay 1: \t$" << setw(9) << day_1 << "\nDay 2: \t$" << setw(9) << day_2 << "\nDay 3: \t$" << setw(9) << day_3;
+
+		total_days = day_1 + day_2 + day_3;
+		cout << "\n\nTotal: $" << setw(9)  << total_days;
+
+		cout << "\n\n---------------------------------------------------------------------------------------------------\n\n";
+		*/
+
+//Program 3-18
+		//accepts no arguments
+		//takes input from the user in the form of first and last name and the city they live in and outputs a summary
+
+		/* 
+		//define variables
+		string name, city;
+
+		//take input from the user
+		cout << "Enter your first and last name: ";
+		cin >> name;
+		cout << "Enter the city you live in: ";
+		cin >> city;
+
+		//print summary
+		cout << "Hello, " << name << endl;
+		cout << "You live in " << city << endl;
+		*/
+		
 }
