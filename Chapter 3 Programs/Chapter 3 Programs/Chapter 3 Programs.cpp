@@ -109,5 +109,33 @@ int main()
 
 //Exercise #19 - Monthly Payments:
 	//calculate the monthly payment on a loan
+	double loan_amt, month_int, payments_done, loan_amt, ann_rate;
+
+	//ask for loan amt
+	cout << "Enter the loan amount: $";
+	cin >> loan_amt;
+
+	//ask for annual int rate
+	cout << "\nEnter the annual interest rate: $";
+	cin >> ann_rate;
+
+	//ask for the number of payments made 
+	cout << "\nEnter the amount of payments made: $";
+	cin >> payments_done;
+
+	//print the loan amount
+	cout << "\n\nLoan Amount:\t$ " << loan_amt;
+	
+	//calculate the monthly interest rate
+	month_int = ann_rate * 12;
+	month_int = month_int / 100;
+
+	//print the monthly interest rate
+	cout << "\nMonthy Interest Rate:\t" << month_int;
+
+	//print the number of payments 
+	cout << "\nNumber of Payments:\t" << payments_done;
+
+
 
 }
