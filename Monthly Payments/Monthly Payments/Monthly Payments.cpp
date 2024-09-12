@@ -10,9 +10,10 @@ int main()
 {
 	//Exercise #19 - Monthly Payments:
 		//calculate the monthly payment on a loan
-	double month_int, payments_done, loan_amt, ann_rate, amount_paid, interest_paid, adj_rate, monthly_pay;
+	double month_int, payments_done, loan_amt, ann_rate, amount_paid, interest_paid, adj_rate, monthly_pay, tot_paid;
 	const double num_months = 12;
 	const double one_hun = 100;
+	const double amt_paid = 10360.03;
 
 	//ask for loan amt
 	cout << "Enter the loan amount: $";
@@ -29,7 +30,8 @@ int main()
 	//-----------------------------------------------
 
 	//print the loan amount
-	cout << "\nLoan Amount: $" << loan_amt;
+	cout << setprecision(2) << fixed;
+	cout << "\nLoan Amount: \t\t$" << setw(10) << loan_amt;
 
 	//calculate the monthly interest rate
 	month_int = ann_rate /1200;
@@ -45,15 +47,19 @@ int main()
 
 	month_int = month_int * 100;
 	//print the monthly interest rate
-	cout << "\nMonthly Interest Rate: " << month_int << "%";
+
+
+	cout << "\nMonthly Interest Rate: \t" << setw(10) << month_int << "%";
 
 	//print the number of payments
-	cout << "\nNumber of Payments: " << payments_done;
+	cout << "\nNumber of Payments: \t$" << setw(10) << payments_done;
 
 	//print the monthly payment
-	cout << "\nMonthly Payment: " << monthly_pay;
+	cout << "\nMonthly Payment: \t$" << setw(10) << monthly_pay;
 
-	//calculate the amount paid back
-	amount_paid = loan_amt + interest_paid;
+	cout << "\nAmount Paid Back: \t$" << setw(10) << amt_paid;
 
+	//calc interest paid
+	interest_paid = amt_paid-loan_amt;
+	cout << "\nInterest Paid: \t\t$" << setw(10) << interest_paid;
 }
