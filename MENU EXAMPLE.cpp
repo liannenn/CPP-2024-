@@ -35,51 +35,61 @@ int main()
 
 
 	//validate input
-	if (choice >= 1 && choice <= 6)
+	switch (choice)
 
 	{
-		if (choice == 1)
+		//Program 4-11 - Math Tutor Revision
+		case 1:
 		{
 			cout << "\nExercise 4-11 - Math Tutor Revision";
 
-
+			cout << "\n--------------------------------------------------\n";
 		}
+		
+		break;
 
-		else if (choice == 2)
+		//Program 4-17 - Pole Vault Personal Best
+		case 2:
 		{
 			cout << "\nExercise 4-17 - Pole Vault Personal Best";
 
+			cout << "\n--------------------------------------------------\n";
+		
 		}
+		break;
 
-
-		else if (choice == 3)
+		//Program 4-23 - Geometry Calculator
+		case 3:
 		{
 			cout << "\nExercise 4-23 - Geometry Calculator";
 
+			cout << "\n--------------------------------------------------\n";
+		
 		}
+		break;
 
-
-		else if (choice == 4)
+		//Program 4-27 - Wifi Diagnostic
+		case 4:
 		{
 			cout << "\nExercise 4-27 - Wifi Diagnostic";
 
+			cout << "\n--------------------------------------------------\n";
+		
 		}
+		break;
 
-
-		else if (choice == 5)
+		//Program 4-28 - Restaurant Selector
+		case 5:
 		{
-			cout << "\nExercise 4 - 28 - Restaurant Selector";
+			cout << "\nExercise 4-28 - Restaurant Selector";
 
+			cout << "\n--------------------------------------------------\n";
 		}
+		break;
 
-
-		else
-		{
-			cout << "\nThank you for using the Chapter 4 Exercise Menu";
-		}
-
+		//print invalid choice when an invalid input is added
+		default: << cout >> "Invalid choice.";
 	}
 
-	else
-		cout << "\nInvalid input.";
+	
 }
