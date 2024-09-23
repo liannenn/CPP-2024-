@@ -41,7 +41,31 @@ int main()
 		//Program 4-11 - Math Tutor Revision
 		case choice == 1:
 		{
-			cout << "\nExercise 4-11 - Math Tutor Revision";
+			
+			//create variables
+			double number_1, number_2, total;
+			const int maxValue = 500, minValue = 0; //create a constant to make a range for the number
+			char ch; //define a char variable to take an input to reveal your answer
+
+			//system time
+			unsigned seed = time(0);
+
+			//create a randomized number 
+			number_1 = (rand() % (maxValue - minValue) + 1) + minValue;
+			number_2 = (rand() % (maxValue - minValue) + 1) + minValue;
+
+			//calculate the total of the two randomized numbers
+			total = number_1 + number_2;
+
+			//print the equation
+			cout << setw(5) << number_1 << endl << "+ " << number_2 << endl << "-----";
+
+			//take input to reveal your answer
+			ch = cin.get();
+
+			//reveal your answer
+			cin.get(ch);
+			cout << setw(5) << total;
 
 			cout << "\n--------------------------------------------------\n";
 		}
