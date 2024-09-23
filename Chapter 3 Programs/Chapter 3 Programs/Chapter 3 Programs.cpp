@@ -115,13 +115,90 @@ int main()
 	double month_int, payments_done_, loan_amt, ann_rate, amount_paid, interest_paid, adj_rate;
 	const double num_months = 12;
 	const double one_hun = 100;
-	
-	//ask for loan amt
+	#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <ctime>
+#include <cstdlib>
+#include <string>
 
+using namespace std;
 
+int main()
+{
+    /*Exercise #25 - Word Game:
+   Write a program that plays a word game with the user, like Mad Libs.*/
+    
+    //initialize variables
+    string name, age, city, college, profession, animal, animal_name;
+    
+    //ask for name
+    cout << "What is your name? ";
+    cin >> name;
+    
+    //ask for age
+    cout << "What is your age? ";
+    cin >> age;
+    
+    //ask for city
+    cout << "What is your city's name? ";
+    cin >> city;
+    
+    //ask for college
+    cout << "What is your college's name? ";
+    cin >> college;
+    
+    //ask for their profession
+    cout << "What is your profession? ";
+    cin >> profession;
+    
+    //ask for their type of animal
+    cout << "What is your pet? ";
+    cin >> animal;
+    
+    //ask for their pet's name
+    cout << "What is the name of your pet? ";
+    cin >> animal_name;
+    
+    //print the story
+    cout << "\n\nThere once was a person named " << name << " who lived in " << city << ". At the age of " << age << " " << name << " went to college at " << college << ". " << name << " graduated and went to work as a " << profession << ". Then, " << name << " adopted a(n) " << animal << " named " << animal_name << ". They both lived happily ever after.";
+}
 
-;
-
-
+  /*Exercise #20 - Pizza Pi:
+    Joe’s Pizza Palace needs a program to calculate the number of slices of pizza any size can be divided into.*/
+    
+    //initialize variables
+    double diameter, radius, slices, people, slices_per_person, total_pizzas, pizza_area;
+    const double pi=3.14159, area_of_slice=14.125;
+    
+    //ask and store the diameter of the pizza
+    cout << "Enter the diameter of the pizza in inches: ";
+    //stores diameter in the variable diameter
+    cin >> diameter;
+    
+    //calculate the amount of slices in a pizza
+    radius = diameter/2;
+    pizza_area = pow(radius, 2)*pi;
+    slices = pizza_area/area_of_slice;
+    
+    //print the amount of slices per the diameter inputted for a slices
+    cout << "A " << diameter << " inch pizza contains about " << setprecision(3) << slices << " slices.";
+    
+    //ask how many people will be attending
+    cout << "\n\nHow many people will be attending? ";
+    cin >> people;
+    
+    //ask and store how many slices will be attended
+    cout << "How many slices per person? ";
+    //stores slices per person in the variable slices_per_person
+    cin >> slices_per_person;
+    
+     //calculates the total amount of pizza(s) needed
+    total_pizzas = slices_per_person*people;
+    total_pizzas = total_pizzas/slices;
+    
+    //print the total pizzas that need to be bought
+    cout << "\nYou will need to buy " << setprecision(2) << total_pizzas << " pizzas.";
+    
 
 }
