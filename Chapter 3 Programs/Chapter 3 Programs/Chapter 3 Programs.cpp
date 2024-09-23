@@ -115,12 +115,54 @@ int main()
 	double month_int, payments_done_, loan_amt, ann_rate, amount_paid, interest_paid, adj_rate;
 	const double num_months = 12;
 	const double one_hun = 100;
-	
-	//ask for loan amt
+	#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <ctime>
+#include <cstdlib>
+#include <string>
 
+using namespace std;
 
-
-;
+int main()
+{
+    /*Exercise #25 - Word Game:
+   Write a program that plays a word game with the user, like Mad Libs.*/
+    
+    //initialize variables
+    string name, age, city, college, profession, animal, animal_name;
+    
+    //ask for name
+    cout << "What is your name? ";
+    cin >> name;
+    
+    //ask for age
+    cout << "What is your age? ";
+    cin >> age;
+    
+    //ask for city
+    cout << "What is your city's name? ";
+    cin >> city;
+    
+    //ask for college
+    cout << "What is your college's name? ";
+    cin >> college;
+    
+    //ask for their profession
+    cout << "What is your profession? ";
+    cin >> profession;
+    
+    //ask for their type of animal
+    cout << "What is your pet? ";
+    cin >> animal;
+    
+    //ask for their pet's name
+    cout << "What is the name of your pet? ";
+    cin >> animal_name;
+    
+    //print the story
+    cout << "\n\nThere once was a person named " << name << " who lived in " << city << ". At the age of " << age << " " << name << " went to college at " << college << ". " << name << " graduated and went to work as a " << profession << ". Then, " << name << " adopted a(n) " << animal << " named " << animal_name << ". They both lived happily ever after.";
+}
 
 
 
