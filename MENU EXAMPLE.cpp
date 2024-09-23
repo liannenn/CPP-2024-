@@ -39,7 +39,7 @@ int main()
 
 	{
 		//Program 4-11 - Math Tutor Revision
-		case 1:
+		case choice == 1:
 		{
 			cout << "\nExercise 4-11 - Math Tutor Revision";
 
