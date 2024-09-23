@@ -164,6 +164,41 @@ int main()
     cout << "\n\nThere once was a person named " << name << " who lived in " << city << ". At the age of " << age << " " << name << " went to college at " << college << ". " << name << " graduated and went to work as a " << profession << ". Then, " << name << " adopted a(n) " << animal << " named " << animal_name << ". They both lived happily ever after.";
 }
 
-
+  /*Exercise #20 - Pizza Pi:
+    Joe’s Pizza Palace needs a program to calculate the number of slices of pizza any size can be divided into.*/
+    
+    //initialize variables
+    double diameter, radius, slices, people, slices_per_person, total_pizzas, pizza_area;
+    const double pi=3.14159, area_of_slice=14.125;
+    
+    //ask and store the diameter of the pizza
+    cout << "Enter the diameter of the pizza in inches: ";
+    //stores diameter in the variable diameter
+    cin >> diameter;
+    
+    //calculate the amount of slices in a pizza
+    radius = diameter/2;
+    pizza_area = pow(radius, 2)*pi;
+    slices = pizza_area/area_of_slice;
+    
+    //print the amount of slices per the diameter inputted for a slices
+    cout << "A " << diameter << " inch pizza contains about " << setprecision(3) << slices << " slices.";
+    
+    //ask how many people will be attending
+    cout << "\n\nHow many people will be attending? ";
+    cin >> people;
+    
+    //ask and store how many slices will be attended
+    cout << "How many slices per person? ";
+    //stores slices per person in the variable slices_per_person
+    cin >> slices_per_person;
+    
+     //calculates the total amount of pizza(s) needed
+    total_pizzas = slices_per_person*people;
+    total_pizzas = total_pizzas/slices;
+    
+    //print the total pizzas that need to be bought
+    cout << "\nYou will need to buy " << setprecision(2) << total_pizzas << " pizzas.";
+    
 
 }
