@@ -234,12 +234,46 @@ int main()
 	{
 		total_ += points;
 		game += 1;
-		cout << "Enter the poitns for game " << game << ": ";
+		cout << "Enter the points for game " << game << ": ";
 		cin >> points;
 	}
 
 	//output the results
 	cout << "Your team scored a total of " << total_ << " points.\n";
 
+	//5-14
+	//accepts no arguments
+	//prompts the use for the number of students and number of tests
+	//it uses a nested for loop to collect the information for each student and display the average
+
+	//initialize variables
+	int num_students, num_tests;
+	double total = 0, average = 0;
+
+	cout << "Enter the number of students to collect stores for: ";
+	cin >> num_students;
+
+	cout << "Enter the number of test scores per student: ";
+	cin >> num_tests;
+
+	for (int student = 1, score = 0; student <= num_students; student++)
+	{
+		cout << "\nEnter test scores for Student " << student << endl;
+
+		for (int test = 1, score = 0; test <= num_tests; test++)
+		{
+			cout << "Test " << test << ": ";
+			cin >> score;
+			total += score;
+
+		}
+		//output the results and reset variables
+		average = total / num_tests;
+		cout << "Student " << student << " averaged: " << average << endl; 
+		cout << "--------------------------------------------" << endl;
+		
+		total = 0;
+		average = 0;
+	}
 
 }
