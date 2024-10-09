@@ -1,0 +1,460 @@
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <ctime>
+
+using namespace std;
+
+int main()
+{
+    //initiate variable choice for the menu
+    int choice;
+
+    cout << "Welcome to the Chapter 4 Exercise Menu\n";
+    cout << "Please choose from the following choices: \n\n";
+    cout << "1.\tExercise 4-11 - Math Tutor Revision\n";
+    cout << "2.\tExercise 4-17 - Pole Vault Personal Best\n";
+    cout << "3.\tExercise 4-23 - Geometry Calculator\n";
+    cout << "4.\tExercise 4-27 - Wifi Diagnostic\n";
+    cout << "5.\tExercise 4-28 - Restaurant Selector\n";
+
+    cout << "6.\tQuit\n";
+
+
+    //print a line
+    cout << "\n--------------------------------------------------\n";
+
+    cout << "\nChoice: ";
+    // get an input from the user
+    cin >> choice;
+
+    //print a line
+    cout << "\n--------------------------------------------------\n";
+
+    //switch for the variable choice
+    switch (choice)
+        //validate input
+
+    case 1:
+    {
+        if (choice == 1)
+        {
+            cout << "\nExercise 4-11 - Math Tutor Revision" << endl;
+
+            //Exercise #11 - Math Tutor Revision:
+            //write a program can be used as a tutor for a young student
+
+            //create variables
+            double number_1, number_2, total, inp_answer;
+            const int maxValue = 500, minValue = 0; //create a constant to make a range for the     number
+            char ch; //define a char variable to take an input to reveal your answer
+
+            //system time
+            unsigned seed = time(0);
+
+            //create a randomized number 
+            number_1 = (rand() % (maxValue - minValue) + 1) + minValue;
+            number_2 = (rand() % (maxValue - minValue) + 1) + minValue;
+
+            //calculate the total of the two randomized numbers
+            total = number_1 + number_2;
+
+            //print the equation
+            cout << setw(5) << number_1 << endl << "+ " << number_2 << endl << "------";
+
+            //ask for their answer to the equation and store it into inp_answer
+            cout << "\n  ";
+            cin >> inp_answer;
+
+            //triggers if the user's input is correct
+            //print a congratulatory message
+            if (inp_answer == total)
+            {
+                cout << endl << "Congratulations! Your answer of " << inp_answer << " was correct!";
+            }
+
+            //triggers an else if the user's input does not match up
+            //prints the answer inputted by the user and then the correct answer
+            else
+            {
+                cout << endl << "Incorrect answer, the correct answer is:\n";
+                cout << setw(5) << number_1 << endl << "+ " << number_2 << endl << "-----\n" << total;
+            }
+
+
+            break;
+        }
+
+        //NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE 
+        //----------------------------------------------------------------------------
+
+    case 2:
+    {
+        cout << "\nExercise 4-17 - Pole Vault Personal Best";
+
+        //Exercise #17 - Personal Best:
+        //write a program that asks the user for the name of a pole vaulter and the dates and vault heights
+        //of the athlete's best three vaults, the program will ONLY validate heights between 2 and 5 meters
+
+    //create variables
+        string vaulter_name; // creates a variable to store the vaulter's name into
+        double first_vault, second_vault, third_vault; // stores an integer for the first, second, and third vault
+        string first_date, second_date, third_date; // stores the dates  to the first, second, and third vault 
+        const int validate = 0; //
+
+        //stores the vaulter's name
+        cout << "\n\nEnter the pole vaulter's name: ";
+        cin >> vaulter_name; // stores name in vaulter_name
+
+        //--------------------------------------------------
+
+        //FIRST POLE VAULT
+
+        //stores the date for the first pole vault
+        cout << "\nEnter the date of the first pole vault: ";
+        cin >> first_date; //stores first date in first_date
+
+        //stores the height correlating to the first date
+        cout << "Enter the height of the first pole vault: ";
+        cin >> first_vault; //stores the height of the first vault
+
+        {
+            if (first_vault >= 2 && first_vault <= 5) //validate the input for the first vault
+            {
+                cout << "Input validated.";
+            }
+
+            else
+            {
+                cout << "Input is invalid, please restart your program.";
+            }
+        }
+        //--------------------------------------------------
+
+        //SECOND VAULT
+
+        //stores the date for the first pole vault
+        cout << "\n\nEnter the date of the second pole vault: ";
+        cin >> second_date; //stores second date in second_date
+
+        //stores the height correlating to the first date
+        cout << "Enter the height of the second pole vault: ";
+        cin >> second_vault; //stores the height of the second vault
+
+        if (second_vault >= 2 && second_vault <= 5) //validate the input for the second vault
+        {
+            cout << "Input validated.";
+        }
+
+        else
+        {
+            cout << "Input is invalid, please restart your program.";
+        }
+        //--------------------------------------------------
+
+        //THIRD VAULT
+
+        //stores the date for the first pole vault
+        cout << "\n\nEnter the date of the third pole vault: ";
+        cin >> third_date; //stores second date in third_date
+
+        //stores the height correlating to the first date
+        cout << "Enter the height of the third pole vault: ";
+        cin >> third_vault; //stores the height of the third vault 
+
+
+        if (third_vault >= 2 && third_vault <= 5) //validate the input for the third vault
+        {
+            cout << "Input validated.";
+        }
+
+        else
+        {
+            cout << "Input is invalid, please restart your program.";
+        }
+        /*START ORDERING BOLT'S PERSONAL BEST*/
+
+        cout << "\n\n" << vaulter_name << "'s personal best: ";
+
+        //--------------------------------------------------
+
+
+        if (first_vault > second_vault && third_vault) //checks if first vault is > second and third vault
+        {
+            //prints the best vault
+            cout << "\nThe best vault took place on " << first_date << " with a height of " << first_vault << endl;
+
+            if (second_vault > third_vault) //checks if second vault is > third_vault
+            {
+                //prints the second best vault
+                cout << "The 2nd best vault took place on " << second_date << " with a height of " << second_vault << endl;
+                
+                //prints the third best vault 
+                cout << "The 3rd best vault took place on " << third_date << " with a height of " << third_vault << endl;
+
+            }
+
+            else //runs if third_vault is > second_vault
+            { 
+                //prints the second best vault
+                cout << "The 2nd best vault took place on " << third_date << " with a height of " << third_vault << endl;
+                //prints the third best vault
+                cout << "The 3rd best vault took place on " << second_date << " with a height of " << second_vault << endl;
+
+            }
+
+        }
+
+
+        //--------------------------------------------------
+
+        if (second_vault > first_vault && third_vault) //checks if second vault is > first and third vault
+        {
+            //prints the best vault
+            cout << "\nThe best vault took place on " << second_date << " with a height of " << second_vault << endl;
+
+            if (first_vault > third_vault) //checks if first vault is > third vault
+            {
+                //prints the second best vault
+                cout << "The 2nd best vault took place on " << first_date << " with a height of " << first_vault << endl;
+                
+                //prints the third best vault
+                cout << "The 3rd best vault took place on " << third_date << " with a height of " << third_vault << endl;
+
+            }
+
+            else //runs if third vault is > first vault
+            {
+                //prints the second best vault
+                cout << "The 2nd best vault took place on " << third_date << " with a height of " << third_vault << endl;
+                //prints the third best vault
+                cout << "The 3rd best vault took place on " << first_date << " with a height of " << first_vault << endl;
+
+            }
+        }
+        
+       
+        //--------------------------------
+
+        if (third_vault > first_vault && second_vault)
+        {
+            cout << "\nThe best vault took place on " << third_date << " with a height of " << third_vault << endl;
+
+            if (first_vault > second_vault)
+            {
+                cout << "The 2nd best vault took place on " << first_date << " with a height of " << first_vault << endl;
+                cout << "The 3rd best vault took place on " << second_date << " with a height of " << second_vault;
+
+            }
+
+            else
+            {
+                cout << "The 2nd best vault took place on " << second_date << " with a height of " << second_vault << endl;
+                cout << "The 3rd best vault took place on " << first_date << " with a height of " << first_vault << endl;
+
+            }
+
+
+
+        }
+
+        break;
+    }
+
+    //NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE 
+    //----------------------------------------------------------------------------
+
+
+    case 3:
+    {
+        cout << "\nExercise 4-23 - Geometry Calculator";
+        int geometry_menu_choice;
+
+        
+        cout << endl << "1. Calculate the area of a Circle" << endl;
+        cout << "2. Calculate the area of a Rectangle" << endl;
+        cout << "3. Calculate the area of a Triangle" << endl;
+        cout << "4. Quit" << endl;
+
+        cout << "Enter your choice (1-4): ";
+        cin >> geometry_menu_choice;
+
+        switch (geometry_menu_choice)
+        {
+            case 1:
+            {
+                // Calculate the area of a Circle
+                    //initialize variables
+                double circle_radius, circle_area;
+                const double pi = 3.14159;
+
+                //print asking for the circle's radius
+                cout << "Enter the circle's radius: ";
+                cin >> circle_radius; //store the input in circle_radius
+
+                //calculate the math
+                circle_area = pi * pow(circle_radius, 2);
+
+                //print the circle's radius, and the area of the circle
+                cout << "The area of your circle with a radius of " << circle_radius << " is: " << circle_area; 
+               
+                break;
+            } 
+
+            case 2: 
+            {
+                //Calculate the area of a Rectangle
+                    //initialize variables
+                double rectangle_length, rectangle_width, rectangle_area;
+
+                //print asking for the length of the rectangle
+                cout << "Enter the rectangle's length: ";
+                cin >> rectangle_length; //stores input into rectangle length
+
+                //print asking for the width of the rectangle 
+                cout << endl << "Enter the rectangle's width: ";
+                cin >> rectangle_width; //stores input into rectangle width
+
+                //calculate the math for the area of the rectangle using the user's inputs
+                rectangle_area = rectangle_width * rectangle_length;
+
+                //print the dimensions and the area of the rectangle
+                cout << "The area of a rectangle with a length of " << rectangle_length << " and a width of " << rectangle_width << " is " << rectangle_area;
+
+                break;
+            }
+
+            case 3: 
+            {
+                //Calculate the area of a Triangle
+                double length_of_base, triangle_height, square_area, triangle_area;
+
+                //print asking for the length of the base
+                cout << "Enter the length of the base: ";
+                cin >> length_of_base; //store the input into length of base
+
+                //print asking for the triangle's height
+                cout << "Enter the triangle's height: ";
+                cin >> triangle_height; //store the input into triangle height
+
+                //calculate for the area of the triangle
+                square_area = triangle_height * length_of_base; //calculates for a square's area with the dimensions
+                triangle_area = square_area / 2; //changes the square into a triangle's area
+
+                //print the area of the triangle
+                cout << "The area of the triangle is " << triangle_area;
+
+                break;
+            }
+
+        }
+    }
+
+    //NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE 
+    //----------------------------------------------------------------------------
+
+    case 4:
+    {
+        cout << "\nExercise 4-27 - Wifi Diagnostic";
+        string reboot_computer, reboot_router, verify_cables, move_router; 
+        
+        
+        cout << "\n\nReboot computer and try to connect. (y/n): ";
+        cin >> reboot_computer;
+        
+        
+        //-----------------------------------------------------------
+        
+        if (reboot_computer == "n")
+            {
+                cout << "Reboot router and try to connect (y/n): ";
+                cin >> reboot_router;
+            }
+            
+        //-----------------------------------------------------------
+        
+        if (reboot_router == "n")
+                {
+                    cout << "Verify that your cables are firmly attached (y/n): ";
+                cin >> verify_cables; 
+                }
+                
+        
+        //-----------------------------------------------------------
+        
+        if (verify_cables == "n")
+            {
+                cout << "Move router to a better location (y/n): "; 
+                cin >> move_router;
+            }
+                
+        
+        //-----------------------------------------------------------
+                   
+        if (move_router == "n")
+            {
+                cout << "Get a new router";
+            }
+            
+        else 
+            cout << "Netflix and chill.";
+            
+        
+        break;
+    }
+
+    //NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE NEW EXERCISE 
+    //----------------------------------------------------------------------------
+
+    case 5:
+    {
+        cout << "\nExercise 4 - 28 - Restaurant Selector" << endl;
+        string vegetarian, vegan, gluten_free;
+        
+        cout << "Is anyone in the party vegetarian?(y/n): ";
+        cin >> vegetarian;
+        
+        cout << "Is anyone in the party vegan?(y/n): "; 
+        cin >> vegan;
+        
+        cout << "Is anyone in the party gluten-free?(y/n): ";
+        cin >> gluten_free;
+        
+        cout << "\nHere are your restaraunt choices: " << endl;
+        
+        if (vegetarian == "y", vegan == "y", gluten_free == "y")
+            cout << "Corner Café\nChefs Kitchen";
+            
+        else if (vegetarian == "n", vegan == "n", gluten_free == "n")
+            cout << "Joes Gourmet Burgers";
+            
+        else if (vegetarian == "y", vegan == "n", gluten_free == "n")
+            cout << "Main Street Pizza Company\nCorner Café\nMamas Fine Italian\nThe Chefs Kitchen";
+            
+        else if (vegetarian == "y", vegan == "y", gluten_free == "n")
+            cout << "Corner Café\nThe Chefs Kitchen";
+            
+        else if (vegetarian == "n", vegan == "y", gluten_free == "y")
+            cout << "Corner Café\nThe Chefs Kitchen";
+            
+        else if (vegetarian == "n", vegan == "n", gluten_free == "y")
+            cout << "The Chefs Kitchen\nCorner Café\nMain Street Pizza Company";
+            
+        else if (vegetarian == "y", vegan == "n", gluten_free == "y")
+            cout << "The Chefs Kitchen\nCorner Café\nMain Street Pizza Company";
+            
+        else if (vegetarian == "n", vegan == "y", gluten_free == "n")
+            cout << "Corner Café\nThe Chefs Kitchen\nMain Street Pizza Company";
+            
+        break;
+    }
+
+    
+
+    }
+
+}
+
+
