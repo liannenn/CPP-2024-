@@ -102,10 +102,10 @@ void displayValue(int num)
 int main()
 {
 	const int value1 = 20, //first val
-			value2 = 40, //second val
-			total; // holds the total
+		value2 = 40; //second val
+			
 
-	cout << "The sum of " << value1 << " and " << value2 << " is " << total << endl;
+	cout << "The sum of " << value1 << " and " << value2 << " is " << sum << endl;
 
 	return 0;
 
@@ -116,3 +116,4 @@ int sum(int num1, int num2)
 {
 	return num1+num2; 
 }
+
