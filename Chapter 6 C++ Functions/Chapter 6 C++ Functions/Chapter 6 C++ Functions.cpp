@@ -10,6 +10,8 @@ using namespace std;
 
 void total_number_of_days(double number_of_days);
 
+void amount_of_each_meal_eaten(double breakfast_1, double lunch_1, double dinner_1, double breakfast_2);
+
 int main()
 {
 	//declare variables
@@ -44,6 +46,8 @@ int main()
 
 	//passes the verified number of days into function
 	total_number_of_days(number_of_days);
+
+
 }
 
 void total_number_of_days(double number_of_days)
@@ -55,4 +59,7 @@ void total_number_of_days(double number_of_days)
 	cout << "The total number of days spent on your trip is: " << number_of_days; 
 }
 
-void amount_of_each_meal_eaten(double breakfast_1, double lunch_1, double dinner_1, double breakfast_2, )
+void amount_of_each_meal_eaten(double breakfast_1, double lunch_1, double dinner_1, double breakfast_2)
+{
+
+}
