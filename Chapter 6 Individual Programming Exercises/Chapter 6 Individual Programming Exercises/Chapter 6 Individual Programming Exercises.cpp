@@ -7,7 +7,7 @@
 using namespace std;
 
 void getScore(double& score_1, double& score_2, double& score_3, double& score_4, double& score_5){
-	void CalcAverage(double score_1, double score_2, double score_3, double score_4, double score_5);
+void CalcAverage(double score_1, double score_2, double score_3, double score_4, double score_5);
 
 int main();
 	{
@@ -35,6 +35,8 @@ int main();
 		case 1:
 		{
 			void getScore(double& score_1, double& score_2, double& score_3, double& score_4, double& score_5);
+			void CalcAverage(double score_1, double score_2, double score_3, double score_4, double score_5, double dropped_average);
+
 		}
 
 		case 2:
@@ -75,7 +77,7 @@ void getScore(double& score_1, double& score_2, double& score_3, double& score_4
 
 void CalcAverage(double score_1, double score_2, double score_3, double score_4, double score_5, double dropped_average);
 {	
-	int dropped_average = 0;
+	double dropped_average = 0;
 
 	void findLowest(double score_1, double score_2, double score_3, double score_4, double score_5);
 
