@@ -118,7 +118,7 @@ int main()
 		int numNum = 0, sum = 0, average, min = 100, max = 0, fetchVar, number = 0;
 
 		// Opening random.txt
-		infile.open("C:\\Users\\2010147\\Desktop\\cpp-2024\\Chapter 5\\Random.txt");
+		infile.open("C:\\Users\\2017696\\Desktop\\cpp-2024-\\ch 5 prog exercises\\Random.txt");
 
 		// Proves that the file is opening
 		if (!infile)
@@ -223,7 +223,7 @@ int main()
 		cin >> filename;
 
 		// Adds file path to the given file name and opens a html file with it
-		//filepath = "C:\\Users\\2017696\\Desktop\\cpp-2024\\Chapter 5\\" + filename + ".html";
+		//filepath = "C:\\Users\\2017696\\Desktop\\cpp-2024-\\ch 5 prog exercises\\" + filename + ".html";
 		filepath = "C:\\Users\\ahrin\\OneDrive\\Desktop\\cpp-test programs\\" + filename + ".html";
 		outfile.open(filepath);
 
