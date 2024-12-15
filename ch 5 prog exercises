@@ -1,0 +1,379 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+	/*
+	Chapter5_Menu
+	accepts no arguments
+		*/
+
+	int menuChoice; // Variable to store the user's menu choice
+	ifstream infile;
+
+	// Displaying the welcome message and menu options
+	cout << "Welcome to the Chapter 5 Exercise Menu"
+		"Please choose from the following choices.\n"
+		"1.\tExercise 5.20, Random Number Guessing Game\n"
+		"2.\tExercise 5.24, Numeric Processing\n"
+		"3.\tExercise 5.23, Triangle Patterns\n"
+		"4.\tExercise 5.26, Web Page\n"
+		"5.\tExercise 5.27, Average Steps\n"
+		"6.\tQuit\n";
+	cout << "Choice: ";
+	cin >> menuChoice; // User inputs their choice
+
+	switch (menuChoice) // Switch statement to handle the user's choice
+	{
+	case 1: // Random Number Guessing Game
+	{
+		/*
+		Program 5-20
+		accepts no arguments
+		It generates a random number and asks the user to guess it
+		*/
+
+		//Initializing variables
+		int randomNum, guessNum;
+		int turns = 1;
+
+		//Setting up random number generator
+		const int min = 1;
+		const int max = 1000;
+
+		unsigned seed = time(0);
+		srand(seed);
+
+		randomNum = (rand() % (max - min + 1)) + min;
+
+		//Displays Text and asks for input
+		cout << "I'm thinking of a number between 1 and 1000\n"
+			<< "Can you guess what it is? ";
+		cin >> guessNum;
+
+		if (guessNum > randomNum && guessNum <= 1000)
+		{
+			cout << "Too high.";
+		}
+		else if (guessNum < randomNum && guessNum >= 1)
+		{
+			cout << "Too low.";
+		}
+		else
+		{
+			cin.ignore();
+			cout << "Invalid input. Try again.";
+		}
+
+		//loops until correct answer is found
+		while (guessNum != randomNum)
+		{
+			cout << "\nGuess again: ";
+			cin >> guessNum; // User input
+
+			if (guessNum > randomNum && guessNum <= 1000) 
+			{
+				cout << "Too high."; //Gives user feedback
+				turns += 1;
+			}
+			else if (guessNum < randomNum && guessNum >= 1)
+			{
+				cout << "Too low.";
+				turns += 1;
+			}
+			else
+			{
+				cin.ignore();
+				cout << "Invalid input. Please try again.";
+			}
+		}
+
+		// Win message and stats
+		cout << "Congratulations! You guessed it!\n"
+			<< "I was thinking of the number " << randomNum << ".\n"
+			<< "You successfully guess the number in " << turns << " turn(s).";
+
+		break;
+	}
+
+		/*****************************************/
+
+	case 2: // 5-24, Numeric Proc
+	{
+		/*
+		Program 5-24
+		accepts no arguments
+		It opens random.txt; uses a while loop to read its entire contents;
+		and outputs the number of, sum, average, minimum, and maximum numbers
+		*/
+
+		//Initializing varaibles
+		int numNum = 0, sum = 0, average, min = 100, max = 0, fetchVar, number = 0;
+
+		// Opening random.txt
+		infile.open("C:\\Users\\2010147\\Desktop\\cpp-2024\\Chapter 5\\Random.txt");
+
+		// Proves that the file is opening
+		if (!infile)
+			cout << "Error. Unable to open file.";
+
+		else
+			// While loop repeats for the entirety of the file
+			while (infile >> number)
+			{
+				infile >> fetchVar; // Fetches the file number
+
+				numNum += 1; // Finds how many numbers are in the file
+				sum += fetchVar; // Adds up the sum of the file numbers
+				if (fetchVar > max) // Finds the Maximum value
+					max = fetchVar;
+				if (fetchVar < min) // Finds the Minimum value
+					min = fetchVar;
+
+			}
+		infile.close();
+
+		average = sum / numNum;
+
+		// Displayed output
+		cout << "Number of numbers: " << numNum;
+		cout << "\nSum of the numbers: " << sum;
+		cout << "\nAverage of the numbers: " << average;
+		cout << "\nMinimum value: " << min;
+		cout << "\nMaximum value: " << max;
+
+
+		break;
+	}
+
+		/*****************************************/
+	
+	case 3: // Triangle patterns
+	{
+		/*
+		Program 5-23
+		accepts no arguments
+		it repeats a pattern adding to it as it goes up 
+		and subtracting as it goes down
+		*/
+
+		int max = 10, min = 1, loop = 1;
+
+		// Ascending loop
+		cout << "\n*\n"; // A slight cheat
+		for (loop; loop <= max; loop++) // Repeats, adding 1 until it reaches 10
+		{
+			for (int repeat = 0; repeat <= loop; repeat++) // Repeats for number of loop
+			{
+				cout << "*";
+			}
+
+			loop += 1; // Adds 1 to loop each iteration
+			cout << endl;
+		}
+		
+
+		 // Descending loop
+		for (loop; loop >= min; loop--) // Repeats, subtracting 1 unitl it reaches 1
+		{
+			for (int repeat = 0; repeat <= loop; repeat++) // Repeats for number of loop
+			{
+				cout << "*";
+			}
+
+			loop -= 1; // Subtracts 1 to loop each iteration
+			cout << endl;
+		}
+		cout << "*\n";
+
+		break;
+	}
+		/*****************************************/
+
+	case 4: // Web Page 
+	{
+		/*
+		Program 5-26
+		accepts no arguments
+  		it asks for input for name and description
+    		then creates a html file with the given filename
+      		and information
+		*/
+
+		// Initializing variables
+		string name, name2, description, filename, filepath;
+		ofstream outfile;
+
+		// Input
+		cout << "Enter your name: ";
+		cin >> name >> name2;
+		cin.ignore();
+		
+		cout << "Describe yourself. ";
+		getline(cin, description);
+
+		cout << "Enter a file name: ";
+		cin >> filename;
+
+		// Adds file path to the given file name and opens a html file with it
+		//filepath = "C:\\Users\\2017696\\Desktop\\cpp-2024\\Chapter 5\\" + filename + ".html";
+		filepath = "C:\\Users\\ahrin\\OneDrive\\Desktop\\cpp-test programs\\" + filename + ".html";
+		outfile.open(filepath);
+
+		// Writing formatted html code to a html file
+		outfile << "  <head>\n";
+		outfile << "  </head>\n";
+		outfile << "  <body>\n";
+		outfile << "    <center>\n";
+		outfile << "      <h1>" << name << " " << name2 << "</h1>\n"; // name string
+		outfile << "    </center>\n";
+		outfile << "    <hr />\n";
+		outfile << "    " << description << "\n"; // description string
+		outfile << "    <hr />\n";
+		outfile << "  </body>\n";
+		outfile << "</html>\n";
+
+		outfile.close();
+
+		cout << "Webpage successfully saved."; 
+
+		break;
+	}
+
+		/*****************************************/
+
+	case 5: // Average Steps
+	{
+		/*
+		Program 5-27
+		accepts no arguments
+		*/
+
+		int filenum = 0, tic = 0, monthSum = 0, text;
+		int jan = 31, feb = 28, march = 31, april = 30, may = 31, june = 30, 
+			july = 31, aug = 31, sept = 30, oct = 31, nov = 30, dec = 31;
+		ifstream infile;
+
+		infile.open("C:\\Users\\2010147\\Desktop\\cpp-2024\\Chapter 5\\steps.txt");
+	
+		for (jan; jan >= tic; tic++)
+		{
+			infile >> text; // Reads a line of text
+			monthSum += text; // Adds up steps in a month
+		}
+		// Divides monthly steps by the number of days in each month
+		cout << "\nAverage steps in January: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (feb; feb >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in February: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (march; march >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in March: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (april; april >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+
+		for (may; may >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in May: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (june; june >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in June: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (july; july >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in July: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (aug; aug >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in August: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+			
+		for (sept; sept >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in September: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (oct; oct >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in October: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (nov; nov >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in November: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+
+		for (dec; dec >= tic; tic++)
+		{
+			infile >> text;
+			monthSum += text;
+		}
+		cout << "\nAverage steps in December: " << monthSum / tic;
+		tic = 0;
+		monthSum = 0;
+		
+		infile.close();
+
+		break;
+	}
+
+	}
+}
+
