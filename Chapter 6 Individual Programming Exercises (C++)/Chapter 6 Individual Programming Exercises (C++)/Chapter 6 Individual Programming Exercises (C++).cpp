@@ -21,45 +21,45 @@ int main()
 
 	cout << "\n\Choice: ";
 	// get an input from the user
-	cin >> choice;
+	cin >> menu_choice;
 
 	//print a line
 	cout << "\n--------------------------------------------------\n";
 
 
 	//validate input
-	if (choice >= 1 && choice <= 6)
+	if (menu_choice >= 1 && menu_choice <= 6)
 
 	{
-		if (choice == 1)
+		if (menu_choice == 1)
 		{
 			cout << "\nExercise 4-11 - Math Tutor Revision";
 
 
 		}
 
-		else if (choice == 2)
+		else if (menu_choice == 2)
 		{
 			cout << "\nExercise 4-17 - Pole Vault Personal Best";
 
 		}
 
 
-		else if (choice == 3)
+		else if (menu_choice == 3)
 		{
 			cout << "\nExercise 4-23 - Geometry Calculator";
 
 		}
 
 
-		else if (choice == 4)
+		else if (menu_choice == 4)
 		{
 			cout << "\nExercise 4-27 - Wifi Diagnostic";
 
 		}
 
 
-		else if (choice == 5)
+		else if (menu_choice == 5)
 		{
 			cout << "\nExercise 4 - 28 - Restaurant Selector";
 
