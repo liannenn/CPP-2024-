@@ -21,11 +21,6 @@ int computer_choice();
 string player_choice();
 void winner(string, int);
 
-/*####################
-# Main accepts no arguments
-# It displays a choice menu to switch to different programs
-# This is where the main of each program and its calls are kept
-######################*/
 int main()
 {
 	int menuChoice; // Varaible to store the user's choice
