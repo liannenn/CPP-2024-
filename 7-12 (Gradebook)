@@ -1,0 +1,61 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+// Function to calculate the average score
+double calculateAverage(double scores[], int numTests) {
+    double total = 0;
+    for (int i = 0; i < numTests; i++) {
+        total += scores[i];
+    }
+    return total / numTests;
+}
+
+// Function to determine the letter grade
+char determineGrade(double average) {
+    if (average >= 90) return 'A';
+    else if (average >= 80) return 'B';
+    else if (average >= 70) return 'C';
+    else if (average >= 60) return 'D';
+    else return 'F';
+}
+
+int main() {
+    const int numStudents = 5;
+    const int numTests = 4;
+    
+    string studentNames[numStudents];
+    double scores[numStudents][numTests];
+    char grades[numStudents];
+
+    // Input student names and scores
+    for (int i = 0; i < numStudents; i++) {
+        cout << "Enter name of student " << i + 1 << ": ";
+        getline(cin, studentNames[i]);
+
+        cout << "Enter 4 test scores for " << studentNames[i] << ":\n";
+        for (int j = 0; j < numTests; j++) {
+            cout << "Test " << j + 1 << ": ";
+            cin >> scores[i][j];
+        }
+        cin.ignore(); // To handle the newline character after cin
+    }
+
+    // Calculate averages and assign letter grades
+    cout << "\nStudent Grades:\n";
+    cout << setw(15) << left << "Name" << setw(10) << "Average" << "Grade\n";
+    cout << "-----------------------------------\n";
+    
+    for (int i = 0; i < numStudents; i++) {
+        double avg = calculateAverage(scores[i], numTests);
+        grades[i] = determineGrade(avg);
+
+        cout << setw(15) << left << studentNames[i]
+             << setw(10) << fixed << setprecision(2) << avg
+             << grades[i] << endl;
+    }
+
+    return 0;
+}
