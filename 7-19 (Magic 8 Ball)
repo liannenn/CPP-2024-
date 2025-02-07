@@ -1,0 +1,64 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <cstdlib>  // For rand() and srand()
+#include <ctime>    // For time()
+
+using namespace std;
+
+// Function to load responses from file into a vector
+vector<string> loadResponses(const string &filename) {
+    vector<string> responses;
+    ifstream file(filename);
+    string response;
+    
+    if (!file) {
+        cout << "Error: Could not open file " << filename << endl;
+        return responses;
+    }
+
+    while (getline(file, response)) {
+        responses.push_back(response);
+    }
+
+    file.close();
+    return responses;
+}
+
+int main() {
+    string filename = "8_ball_responses.txt";
+    vector<string> responses = loadResponses(filename);
+
+    // Check if responses were loaded
+    if (responses.empty()) {
+        cout << "No responses found. Please check the file.\n";
+        return 1;
+    }
+
+    // Seed random number generator
+    srand(time(0));
+
+    string question;
+    char playAgain;
+
+    cout << "Welcome to the Magic 8 Ball!\n";
+    
+    do {
+        cout << "\nAsk a question: ";
+        getline(cin, question);  // User asks a question
+
+        // Randomly pick a response
+        int index = rand() % responses.size();
+        cout << "Magic 8 Ball says: " << responses[index] << endl;
+
+        // Ask if they want to play again
+        cout << "Ask another question? (y/n): ";
+        cin >> playAgain;
+        cin.ignore();  // Ignore newline character
+
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    cout << "Thanks for playing!\n";
+    return 0;
+}
