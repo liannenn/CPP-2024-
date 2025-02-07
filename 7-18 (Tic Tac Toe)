@@ -1,0 +1,114 @@
+#include <iostream>
+
+using namespace std;
+
+// Function to initialize the board with asterisks (*)
+void initializeBoard(char board[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            board[i][j] = '*';
+        }
+    }
+}
+
+// Function to display the board
+void displayBoard(const char board[3][3]) {
+    cout << "\n  0 1 2\n";  // Column numbers
+    for (int i = 0; i < 3; i++) {
+        cout << i << " ";  // Row number
+        for (int j = 0; j < 3; j++) {
+            cout << board[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+// Function to check if a player has won
+bool checkWinner(const char board[3][3], char player) {
+    // Check rows and columns
+    for (int i = 0; i < 3; i++) {
+        if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) || 
+            (board[0][i] == player && board[1][i] == player && board[2][i] == player)) {
+            return true;
+        }
+    }
+    // Check diagonals
+    if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
+        (board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
+        return true;
+    }
+    return false;
+}
+
+// Function to check if the board is full (tie)
+bool isBoardFull(const char board[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (board[i][j] == '*') {
+                return false; // There is still space to play
+            }
+        }
+    }
+    return true; // Board is full
+}
+
+// Function to handle player moves
+void playerMove(char board[3][3], char player) {
+    int row, col;
+    while (true) {
+        cout << "Player " << player << ", enter row and column (0-2) separated by space: ";
+        cin >> row >> col;
+
+        // Check for valid move
+        if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == '*') {
+            board[row][col] = player;
+            break;
+        } else {
+            cout << "Invalid move! Try again.\n";
+        }
+    }
+}
+
+// Function to play the game
+void playGame() {
+    char board[3][3];
+    initializeBoard(board);
+
+    char currentPlayer = 'X';
+    bool gameWon = false;
+
+    while (true) {
+        displayBoard(board);
+        playerMove(board, currentPlayer);
+
+        // Check for winner
+        if (checkWinner(board, currentPlayer)) {
+            displayBoard(board);
+            cout << "Player " << currentPlayer << " wins!\n";
+            gameWon = true;
+            break;
+        }
+
+        // Check for tie
+        if (isBoardFull(board)) {
+            displayBoard(board);
+            cout << "It's a tie!\n";
+            break;
+        }
+
+        // Switch player
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+}
+
+int main() {
+    char playAgain;
+    do {
+        playGame();
+        cout << "Do you want to play again? (y/n): ";
+        cin >> playAgain;
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    cout << "Thanks for playing!\n";
+    return 0;
+}
