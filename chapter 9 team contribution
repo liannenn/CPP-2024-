@@ -1,0 +1,84 @@
+#include <iostream>
+#include <fstream>  // For file output
+#include <algorithm> // For std::sort
+
+using namespace std;
+
+// Function to get user input and validate scores
+int* getValidatedScores(int& numScores) {
+    cout << "Enter the number of test scores: ";
+    cin >> numScores;
+
+    if (numScores <= 0) {
+        cout << "Invalid number of scores!" << endl;
+        return nullptr;
+    }
+
+    int* scores = new(nothrow) int[numScores];
+    if (!scores) {
+        cout << "Memory allocation failed!" << endl;
+        return nullptr;
+    }
+
+    cout << "Enter the test scores (positive integers only): " << endl;
+    for (int i = 0; i < numScores; i++) {
+        cin >> *(scores + i);
+        while (*(scores + i) < 0) {
+            cout << "Invalid score! Enter a positive integer: ";
+            cin >> *(scores + i);
+        }
+    }
+    return scores;
+}
+
+// Function to calculate the average of test scores, dropping the lowest score
+double calculateAverage(int* scores, int count) {
+    if (count <= 1) return 0.0; // If only one score or none, return 0
+    int sum = 0;
+    for (int i = 1; i < count; i++) { // Start from index 1 to drop the lowest score
+        sum += *(scores + i);
+    }
+    return static_cast<double>(sum) / (count - 1);
+}
+
+int main() {
+    int numScores;
+    int* scores = getValidatedScores(numScores);
+    if (!scores) return 1;
+
+    // Sort the scores
+    sort(scores, scores + numScores);
+
+    // Calculate the average dropping the lowest score
+    double average = calculateAverage(scores, numScores);
+
+    // Display sorted scores
+    cout << "Sorted test scores: ";
+    for (int i = 0; i < numScores; i++) {
+        cout << *(scores + i) << " ";
+    }
+    cout << endl;
+
+    // Display average
+    cout << "Average score (dropping the lowest): " << average << endl;
+
+    // Write results to file
+    ofstream outFile("test_scores_results.txt");
+    if (outFile) {
+        outFile << "Sorted Test Scores:\n";
+        for (int i = 0; i < numScores; i++) {
+            outFile << *(scores + i) << " ";
+        }
+        outFile << "\nAverage Score (dropping the lowest): " << average << endl;
+        outFile.close();
+        cout << "Results saved to test_scores_results.txt" << endl;
+    }
+    else {
+        cout << "Error opening file for writing!" << endl;
+    }
+
+    // Free dynamically allocated memory
+    delete[] scores;
+
+    return 0;
+}
