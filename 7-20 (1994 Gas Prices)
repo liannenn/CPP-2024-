@@ -1,0 +1,78 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <limits>
+#include <iomanip>
+
+using namespace std;
+
+// Function to get the name of the month based on the week number
+string getMonthName(int week) {
+    if (week >= 1 && week <= 4) return "January";
+    if (week >= 5 && week <= 8) return "February";
+    if (week >= 9 && week <= 12) return "March";
+    if (week >= 13 && week <= 16) return "April";
+    if (week >= 17 && week <= 20) return "May";
+    if (week >= 21 && week <= 24) return "June";
+    if (week >= 25 && week <= 28) return "July";
+    return "Unknown Month";
+}
+
+int main() {
+    ifstream file("1994_Weekly_Gas_Averages.txt");
+    if (!file) {
+        cerr << "Error opening file!" << endl;
+        return 1;
+    }
+
+    vector<double> gasPrices(52);
+    
+    // Read the gas prices into the vector
+    for (int i = 0; i < 52; ++i) {
+        file >> gasPrices[i];
+    }
+
+    // Variables for tracking the lowest and highest prices
+    double minPrice = numeric_limits<double>::infinity();
+    double maxPrice = -numeric_limits<double>::infinity();
+    int minWeek = 0, maxWeek = 0;
+
+    // Calculate lowest and highest prices
+    for (int i = 0; i < 52; ++i) {
+        if (gasPrices[i] < minPrice) {
+            minPrice = gasPrices[i];
+            minWeek = i + 1; // Week is 1-based
+        }
+        if (gasPrices[i] > maxPrice) {
+            maxPrice = gasPrices[i];
+            maxWeek = i + 1;
+        }
+    }
+
+    // Display the lowest and highest prices with their corresponding weeks and months
+    cout << "Lowest Average Price: $" << fixed << setprecision(2) << minPrice 
+         << " in Week " << minWeek << " (" << getMonthName(minWeek) << ")\n";
+    cout << "Highest Average Price: $" << fixed << setprecision(2) << maxPrice 
+         << " in Week " << maxWeek << " (" << getMonthName(maxWeek) << ")\n";
+
+    // Calculate and display average price for each month
+    double monthlyAverages[12] = {0};
+    int weeksInMonth[12] = {0}; // To count weeks in each month
+
+    for (int i = 0; i < 52; ++i) {
+        int month = (i / 4); // Each month has 4 weeks roughly
+        monthlyAverages[month] += gasPrices[i];
+        weeksInMonth[month]++;
+    }
+
+    cout << "\nAverage gas prices per month:\n";
+    for (int i = 0; i < 12; ++i) {
+        if (weeksInMonth[i] > 0) {
+            double average = monthlyAverages[i] / weeksInMonth[i];
+            cout << getMonthName(i * 4 + 1) << ": $" << fixed << setprecision(2) << average << "\n";
+        }
+    }
+
+    return 0;
+}
