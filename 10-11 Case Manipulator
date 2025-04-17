@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cctype>
+#include <cstring>
+
+using namespace std;
+
+void upper(char* str) {
+    while (*str) {
+        *str = toupper(*str);
+        str++;
+    }
+}
+
+void lower(char* str) {
+    while (*str) {
+        *str = tolower(*str);
+        str++;
+    }
+}
+
+void reverse(char* str) {
+    while (*str) {
+        if (islower(*str)) {
+            *str = toupper(*str);
+        } else if (isupper(*str)) {
+            *str = tolower(*str);
+        }
+        str++;
+    }
+}
+
+int main() {
+    const int SIZE = 100;
+    char input[SIZE];
+
+    cout << "Enter a string: ";
+    cin.getline(input, SIZE);
+
+    reverse(input);
+    cout << "Reversed case: " << input << endl;
+
+    lower(input);
+    cout << "Lowercase: " << input << endl;
+
+    upper(input);
+    cout << "Uppercase: " << input << endl;
+
+    return 0;
+}
