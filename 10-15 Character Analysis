@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+#include <cctype>
+
+using namespace std;
+
+int main() {
+    ifstream file("text.txt");
+
+    if (!file) {
+        cerr << "Error opening file.\n";
+        return 1;
+    }
+
+    char ch;
+    int upperCount = 0, lowerCount = 0, digitCount = 0, sentenceCount = 0;
+
+    while (file.get(ch)) {
+        if (isupper(ch)) upperCount++;
+        else if (islower(ch)) lowerCount++;
+        else if (isdigit(ch)) digitCount++;
+        else if (ch == '.' || ch == '!' || ch == '?') sentenceCount++;
+    }
+
+    file.close();
+
+    cout << "Uppercase letters: " << upperCount << endl;
+    cout << "Lowercase letters: " << lowerCount << endl;
+    cout << "Digits: " << digitCount << endl;
+    cout << "Sentences: " << sentenceCount << endl;
+
+    return 0;
+}
