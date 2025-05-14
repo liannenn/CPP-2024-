@@ -1,0 +1,116 @@
+// Inventory Program - 5-14
+
+#include <iostream>
+using namespace std;
+
+// Inventory class
+class Inventory
+{
+private:
+	// variables
+	int itemNumber;
+	int quantity;
+	double cost;
+	double totalCost;
+
+public:
+	// default constructor - sets everything to 0
+	Inventory()
+	{
+		itemNumber = 0;
+		quantity = 0;
+		cost = 0.0;
+		totalCost = 0.0;
+	}
+
+	// constructor with values
+	Inventory(int number, double c, int q)
+	{
+		itemNumber = number;
+		cost = c;
+		quantity = q;
+		setTotalCost(); // calculate totalCost
+	}
+
+	// set item number
+	void setItemNumber(int n)
+	{
+		itemNumber = n;
+	}
+
+	// set quantity
+	void setQuantity(int q)
+	{
+		quantity = q;
+	}
+
+	// set cost
+	void setCost(double c)
+	{
+		cost = c;
+	}
+
+	// set total cost (quantity * cost)
+	void setTotalCost()
+	{
+		totalCost = quantity * cost;
+	}
+
+	// get item number
+	int getItemNumber()
+	{
+		return itemNumber;
+	}
+
+	// get quantity
+	int getQuantity()
+	{
+		return quantity;
+	}
+
+	// get cost
+	double getCost()
+	{
+		return cost;
+	}
+
+	// get total cost
+	double getTotalCost()
+	{
+		return totalCost;
+	}
+};
+
+int main()
+{
+	// 5-14
+
+	// make an Inventory object using constructor
+	Inventory item1(123, 7.99, 12);
+
+	// print item information
+	cout << "\nItem Number: " << item1.getItemNumber();
+	cout << "\nItem Quantity: " << item1.getQuantity();
+	cout << "\nItem Cost: $" << item1.getCost();
+	cout << "\nTotal Cost: $" << item1.getTotalCost() << endl;
+
+	// seperator
+	cout << "\n--------------------------------------------" << endl;
+
+	// change values using setters
+	item1.setItemNumber(456);
+	item1.setQuantity(20);
+	item1.setCost(9.50);
+	item1.setTotalCost(); // must update total cost
+
+	// print updated item info
+	cout << "\nUpdated Item Number: " << item1.getItemNumber();
+	cout << "\nUpdated Quantity: " << item1.getQuantity();
+	cout << "\nUpdated Cost: $" << item1.getCost();
+	cout << "\nUpdated Total Cost: $" << item1.getTotalCost() << endl;
+
+	// seperator
+	cout << "\n--------------------------------------------" << endl;
+
+	return 0;
+}
